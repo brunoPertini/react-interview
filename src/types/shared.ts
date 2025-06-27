@@ -12,6 +12,13 @@ export type TodoListProps = {
     handleItemDelete: (id: number) => Promise<void>,
 }
 
+export type CompletableTodoListProps = {
+    items: TodoItem[],
+    handleItemUpdate: (id: number, newValue: string) => Promise<void>,
+    handleItemDelete: (id: number) => Promise<void>,
+    setAppMode: (value: AppMode) => void,
+}
+
 export enum AppMode {
     APP_MODE_READ = "APP_MODE_READ",
     APP_MODE_EDIT_DELETE = "APP_MODE_EDIT_DELETE",

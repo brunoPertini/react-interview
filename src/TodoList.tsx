@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
 import { AppMode, TodoListProps } from "./types/shared"
+import EditableToDoList from "./EditableTodoList";
 
 export default function TodoList({ items,
   onItemAdd,
@@ -17,16 +18,6 @@ export default function TodoList({ items,
     setNewItemValue("");
   }
 
-  const handleOnEditItem = (id: number, event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (event.key === "Enter") {
-      const newValue = (event.target as HTMLInputElement).value;
-      handleItemUpdate(id, newValue).finally(() => setAppMode(AppMode.APP_MODE_READ));
-    }
-  }
-
-  const handleOnDeleteItem = (id: number) => {
-    handleItemDelete(id).finally(() => setAppMode(AppMode.APP_MODE_READ));
-  }
 
   const handleOnCheckboxChange = (id: number, event: React.ChangeEvent<HTMLInputElement>) => {
     const isCompleted = event.target.checked;
@@ -70,24 +61,8 @@ export default function TodoList({ items,
     </div>
   }
 
-  return (
-    <div className="row">
-      <div className="column">
-        <h2>To complete item edition, press enter after editing some. To delete, click on delete</h2>
-        {items.map((item) => (
-          <div className="row">
-            <input
-              className="input"
-              defaultValue={item.name}
-              key={item.id}
-              onKeyDown={(event) => handleOnEditItem(item.id, event)} />
-            <span className="link" onClick={() => handleOnDeleteItem(item.id)}>Delete</span>
-          </div>
-        ))}
-      </div>
-      <div className="column">
-        <button onClick={() => setAppMode(AppMode.APP_MODE_READ)}>Go back to Read Mode</button>
-      </div>
-    </div>
-  );
+  return <EditableToDoList items={items}
+    handleItemUpdate={handleItemUpdate}
+    handleItemDelete={handleItemDelete}
+    setAppMode={setAppMode} />
 }
