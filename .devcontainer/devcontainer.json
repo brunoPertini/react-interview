@@ -3,6 +3,6 @@
 	"image": "mcr.microsoft.com/devcontainers/typescript-node:1-22-bookworm",
 	"postCreateCommand": [
 		"bash",
-		"../.devcontainer/postCreate.sh"
+		"./.devcontainer/postCreate.sh"
 	]
 }

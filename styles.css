@@ -1,0 +1,20 @@
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    display: flex;
+    gap: 200px;
+    flex-direction: row;
+}
+
+.input {
+    width: 20%;
+}
+
+.link {
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+}
