@@ -18,7 +18,7 @@ export default function EditableToDoList({ items, setAppMode, handleItemUpdate, 
           <div className="column">
             <h2>To complete item edition, press enter after editing some. To delete, click on delete</h2>
             {items.map((item) => (
-              <div className="row">
+              <div className="row row-centered">
                 <input
                   className="input"
                   defaultValue={item.name}

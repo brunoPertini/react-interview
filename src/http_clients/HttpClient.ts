@@ -31,7 +31,7 @@ export class HttpClient {
 
     async patch<T, B>(url: string, data: B): Promise<T> {
         try {
-            const response = await this.axiosInstance.patch<T>(url, data); 
+            const response = await this.axiosInstance.patch<T>(url, data);
             return response.data;
         } catch (error) {
             console.error("Error patching data:", error);

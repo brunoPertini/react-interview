@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import { AppMode, TodoListProps } from "./types/shared"
 import EditableToDoList from "./EditableTodoList";
+import { Separator } from "./Separator";
 
 export default function TodoList({ items,
   onItemAdd,
@@ -42,6 +43,7 @@ export default function TodoList({ items,
                   onChange={(event) => handleOnCheckboxChange(item.id, event)}
                 />
               </label>
+              <Separator />
             </div>
           )
         })

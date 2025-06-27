@@ -9,8 +9,13 @@
     flex-direction: row;
 }
 
+.row-centered {
+    align-items: center;
+}
+
 .input {
     width: 20%;
+    margin-top: 2%;
 }
 
 .link {
